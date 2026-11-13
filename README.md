@@ -49,3 +49,8 @@ commits in [UOR-Foundation/community](https://github.com/UOR-Foundation/communit
 ## License
 
 MIT OR Apache-2.0. The vendored CHAOSS marks keep their own licenses.
+
+## Upstream pull requests
+
+`upstream/perceval-pr.md` and `upstream/chronicler-pr.md` are the drafted
+bodies of the two upstream pull requests. Each body links the artifacts above.
