@@ -1,0 +1,970 @@
+\begin{lexlean}{Security}
+\useglossary{lexlean.std.bool@1.2.0}
+\useglossary{lexlean.std.nat@1.2.0}
+\useglossary{prism.arch@1.0.0}
+\useglossary{prism.sec@1.0.0}
+\importmodule{Foundation.Sec}
+\importmodule{Production.ThreatModel}
+\importmodule{Architecture}
+\title{security threat}
+\begin{semanticmodule}
+definition{
+  name: assetAnswer,
+  parameters: [],
+  result: Foundation.Sec::Asset,
+  body: (record Foundation.Sec::Asset {index := 0, componentIndex := 6})
+}
+
+definition{
+  name: assetModelSource,
+  parameters: [],
+  result: Foundation.Sec::Asset,
+  body: (record Foundation.Sec::Asset {index := 1, componentIndex := 9})
+}
+
+definition{
+  name: assetPublishedHolo,
+  parameters: [],
+  result: Foundation.Sec::Asset,
+  body: (record Foundation.Sec::Asset {index := 2, componentIndex := 7})
+}
+
+definition{
+  name: assetRequestBytes,
+  parameters: [],
+  result: Foundation.Sec::Asset,
+  body: (record Foundation.Sec::Asset {index := 3, componentIndex := 6})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV001,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 0})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV002,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 1})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV003,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 2})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV004,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 3})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV005,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 4})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV006,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 5})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV007,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 6})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV008,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 7})
+}
+
+definition{
+  name: threatAnswerThatBreaksINV009,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 8})
+}
+
+definition{
+  name: threatBotRateLimitedOffTheGuild,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 9})
+}
+
+definition{
+  name: threatChannelOfAnotherGuildRead,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 10})
+}
+
+definition{
+  name: threatDeletedMessagesKept,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 11})
+}
+
+definition{
+  name: threatEndlessPaging,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 12})
+}
+
+definition{
+  name: threatGrantedCapability,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 13})
+}
+
+definition{
+  name: threatMalformedRequest,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 14})
+}
+
+definition{
+  name: threatOverPrivilegedBot,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 15})
+}
+
+definition{
+  name: threatOversizedPage,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 16})
+}
+
+definition{
+  name: threatOversizedRequest,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 17})
+}
+
+definition{
+  name: threatSubstitutedHolo,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 18})
+}
+
+definition{
+  name: threatSubstitutedHost,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 19})
+}
+
+definition{
+  name: threatTamperedModel,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 20})
+}
+
+definition{
+  name: threatTokenWrittenToAnArchive,
+  parameters: [],
+  result: Foundation.Sec::Threat,
+  body: (record Foundation.Sec::Threat {index := 21})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV001,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 0, assetIndex := 0, threatIndex := 0, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV002,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 1, assetIndex := 0, threatIndex := 1, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV003,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 2, assetIndex := 0, threatIndex := 2, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV004,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 3, assetIndex := 0, threatIndex := 3, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV005,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 4, assetIndex := 0, threatIndex := 4, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV006,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 5, assetIndex := 0, threatIndex := 5, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV007,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 6, assetIndex := 0, threatIndex := 6, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV008,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 7, assetIndex := 0, threatIndex := 7, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskAnswerThatBreaksINV009,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 8, assetIndex := 0, threatIndex := 8, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskBotRateLimitedOffTheGuild,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 9, assetIndex := 3, threatIndex := 9, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskChannelOfAnotherGuildRead,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 10, assetIndex := 0, threatIndex := 10, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskDeletedMessagesKept,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 11, assetIndex := 0, threatIndex := 11, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskEndlessPaging,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 12, assetIndex := 3, threatIndex := 12, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskGrantedCapability,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 13, assetIndex := 0, threatIndex := 13, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskMalformedRequest,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 14, assetIndex := 3, threatIndex := 14, likelihood := (ctor Foundation.Sec::Likelihood.high), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskOverPrivilegedBot,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 15, assetIndex := 1, threatIndex := 15, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskOversizedPage,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 16, assetIndex := 0, threatIndex := 16, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.minor)})
+}
+
+definition{
+  name: riskOversizedRequest,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 17, assetIndex := 3, threatIndex := 17, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.minor)})
+}
+
+definition{
+  name: riskSubstitutedHolo,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 18, assetIndex := 2, threatIndex := 18, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskSubstitutedHost,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 19, assetIndex := 2, threatIndex := 19, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: riskTamperedModel,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 20, assetIndex := 1, threatIndex := 20, likelihood := (ctor Foundation.Sec::Likelihood.low), impact := (ctor Foundation.Sec::Impact.major)})
+}
+
+definition{
+  name: riskTokenWrittenToAnArchive,
+  parameters: [],
+  result: Foundation.Sec::Risk,
+  body: (record Foundation.Sec::Risk {index := 21, assetIndex := 1, threatIndex := 21, likelihood := (ctor Foundation.Sec::Likelihood.medium), impact := (ctor Foundation.Sec::Impact.critical)})
+}
+
+definition{
+  name: controlBoundedRequest,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 0, riskIndex := 17})
+}
+
+definition{
+  name: controlCursorMustAdvance,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 1, riskIndex := 12})
+}
+
+definition{
+  name: controlFingerprintAndProvenance,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 2, riskIndex := 18})
+}
+
+definition{
+  name: controlGuildCheckedBeforePaging,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 3, riskIndex := 10})
+}
+
+definition{
+  name: controlNoCapabilityGranted,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 4, riskIndex := 13})
+}
+
+definition{
+  name: controlPageBoundedByTheLimit,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 5, riskIndex := 16})
+}
+
+definition{
+  name: controlProofOfINV001,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 6, riskIndex := 0})
+}
+
+definition{
+  name: controlProofOfINV002,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 7, riskIndex := 1})
+}
+
+definition{
+  name: controlProofOfINV003,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 8, riskIndex := 2})
+}
+
+definition{
+  name: controlProofOfINV004,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 9, riskIndex := 3})
+}
+
+definition{
+  name: controlProofOfINV005,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 10, riskIndex := 4})
+}
+
+definition{
+  name: controlProofOfINV006,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 11, riskIndex := 5})
+}
+
+definition{
+  name: controlProofOfINV007,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 12, riskIndex := 6})
+}
+
+definition{
+  name: controlProofOfINV008,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 13, riskIndex := 7})
+}
+
+definition{
+  name: controlProofOfINV009,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 14, riskIndex := 8})
+}
+
+definition{
+  name: controlRateGate,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 15, riskIndex := 9})
+}
+
+definition{
+  name: controlReadOnlyPermissionsDocumented,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 16, riskIndex := 15})
+}
+
+definition{
+  name: controlRegeneratedFromThePrompt,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 17, riskIndex := 20})
+}
+
+definition{
+  name: controlStrictDecoder,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 18, riskIndex := 14})
+}
+
+definition{
+  name: controlTokenRemovedBeforeArchiving,
+  parameters: [],
+  result: Foundation.Sec::ApplicationSecurityControl,
+  body: (record Foundation.Sec::ApplicationSecurityControl {index := 19, riskIndex := 21})
+}
+
+definition{
+  name: controlSet,
+  parameters: [],
+  result: Production.ThreatModel::ControlSet,
+  body: (record Production.ThreatModel::ControlSet {title := "Perceval Discord backend security controls", text := "Perceval Discord backend answers one request with one answer in a Core-Wasm guest granted no capability. Decide the next state of the Discord backend's fetch from the state it is in and the last API response: request the channel, page through its messages, finish, refuse a response that breaks the contract, or fail.", version := "0.1.0", lastModified := "2026-11-13T21:56:35Z"})
+}
+
+definition{
+  name: modeledAssetAnswer,
+  parameters: [],
+  result: Production.ThreatModel::ModeledAsset,
+  body: (record Production.ThreatModel::ModeledAsset {asset := "Security::assetAnswer", name := "Answer", text := "The answer the guest returns: one of channel, paging, done, refused, failed, or invalid."})
+}
+
+definition{
+  name: modeledAssetModelSource,
+  parameters: [],
+  result: Production.ThreatModel::ModeledAsset,
+  body: (record Production.ThreatModel::ModeledAsset {asset := "Security::assetModelSource", name := "Model source", text := "The prompt, the spec and the LexLean model in the repository, from which the holo is built."})
+}
+
+definition{
+  name: modeledAssetPublishedHolo,
+  parameters: [],
+  result: Production.ThreatModel::ModeledAsset,
+  body: (record Production.ThreatModel::ModeledAsset {asset := "Security::assetPublishedHolo", name := "Published holo", text := "The holo and page the Pages workflow publishes, with its fingerprint and signed provenance."})
+}
+
+definition{
+  name: modeledAssetRequestBytes,
+  parameters: [],
+  result: Production.ThreatModel::ModeledAsset,
+  body: (record Production.ThreatModel::ModeledAsset {asset := "Security::assetRequestBytes", name := "Request bytes", text := "The bytes a caller sends, at most 184 of them."})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV001,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV001", name := "Answer that breaks INV-001", text := "The guest answers paging although response is foreign, which matters because no message is read from a channel of a guild the operator did not name.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV002,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV002", name := "Answer that breaks INV-002", text := "The guest answers paging although response is stale, which matters because a server that ignores the cursor cannot make the fetch run forever.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV003,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV003", name := "Answer that breaks INV-003", text := "The guest answers paging although returned is above limit, which matters because a page larger than asked for is not trusted.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV004,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV004", name := "Answer that breaks INV-004", text := "The guest answers paging although remaining is at most floor and sleep is no, which matters because the bot never spends the last of its rate-limit bucket, which risks a Discord ban of the guild's bot.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV005,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV005", name := "Answer that breaks INV-005", text := "The guest answers done although state is channel, which matters because no fetch completes without checking the channel's guild and reading its pages.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV006,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV006", name := "Answer that breaks INV-006", text := "The guest answers failed not when response is error and state is not done and state is not refused, which matters because a revoked or under-privileged token, or a missing channel, stops the fetch instead of returning a partial channel as complete.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV007,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV007", name := "Answer that breaks INV-007", text := "The guest answers done not when state is done, which matters because done is a final state (UML 2.5.1 FinalState): a run that reaches it stays there.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV008,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV008", name := "Answer that breaks INV-008", text := "The guest answers refused not when state is refused, which matters because refused is a final state (UML 2.5.1 FinalState): a run that reaches it stays there.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatAnswerThatBreaksINV009,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatAnswerThatBreaksINV009", name := "Answer that breaks INV-009", text := "The guest answers failed not when state is failed, which matters because failed is a final state (UML 2.5.1 FinalState): a run that reaches it stays there.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatBotRateLimitedOffTheGuild,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatBotRateLimitedOffTheGuild", name := "Bot rate-limited off the guild", text := "The fetch keeps requesting with an exhausted bucket and Discord limits or bans the bot for the whole guild.", category := (ctor Production.ThreatModel::Stride.denialOfService)})
+}
+
+definition{
+  name: modeledThreatChannelOfAnotherGuildRead,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatChannelOfAnotherGuildRead", name := "Channel of another guild read", text := "A channel id of a guild the operator did not name is fetched, so data the operator was not asked to analyse is collected.", category := (ctor Production.ThreatModel::Stride.elevationOfPrivilege)})
+}
+
+definition{
+  name: modeledThreatDeletedMessagesKept,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatDeletedMessagesKept", name := "Deleted messages kept", text := "A member deletes a message after it was fetched, and it stays in the operator's archive and indexes.", category := (ctor Production.ThreatModel::Stride.repudiation)})
+}
+
+definition{
+  name: modeledThreatEndlessPaging,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatEndlessPaging", name := "Endless paging", text := "A server or proxy that ignores the after cursor serves the same page forever, so the fetch never ends.", category := (ctor Production.ThreatModel::Stride.denialOfService)})
+}
+
+definition{
+  name: modeledThreatGrantedCapability,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatGrantedCapability", name := "Granted capability", text := "The guest reads, stores or sends data beyond the request it answers.", category := (ctor Production.ThreatModel::Stride.informationDisclosure)})
+}
+
+definition{
+  name: modeledThreatMalformedRequest,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatMalformedRequest", name := "Malformed request", text := "A request with a missing, extra, unknown or badly written field is answered as if it were well formed.", category := (ctor Production.ThreatModel::Stride.tampering)})
+}
+
+definition{
+  name: modeledThreatOverPrivilegedBot,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatOverPrivilegedBot", name := "Over-privileged bot", text := "The bot is granted more than it reads, so a leaked token can post, moderate or read private channels.", category := (ctor Production.ThreatModel::Stride.elevationOfPrivilege)})
+}
+
+definition{
+  name: modeledThreatOversizedPage,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatOversizedPage", name := "Oversized page", text := "A response larger than the limit asked for is trusted and processed.", category := (ctor Production.ThreatModel::Stride.tampering)})
+}
+
+definition{
+  name: modeledThreatOversizedRequest,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatOversizedRequest", name := "Oversized request", text := "A request longer than 184 bytes makes the guest parse or allocate without bound.", category := (ctor Production.ThreatModel::Stride.denialOfService)})
+}
+
+definition{
+  name: modeledThreatSubstitutedHolo,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatSubstitutedHolo", name := "Substituted holo", text := "A holo other than the one the build verified is served under the app address.", category := (ctor Production.ThreatModel::Stride.spoofing)})
+}
+
+definition{
+  name: modeledThreatSubstitutedHost,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatSubstitutedHost", name := "Substituted host", text := "Something other than the repository Pages workflow serves pages under its address.", category := (ctor Production.ThreatModel::Stride.spoofing)})
+}
+
+definition{
+  name: modeledThreatTamperedModel,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatTamperedModel", name := "Tampered model", text := "The model the holo is built from differs from the reviewed prompt and spec.", category := (ctor Production.ThreatModel::Stride.tampering)})
+}
+
+definition{
+  name: modeledThreatTokenWrittenToAnArchive,
+  parameters: [],
+  result: Production.ThreatModel::ModeledThreat,
+  body: (record Production.ThreatModel::ModeledThreat {threat := "Security::threatTokenWrittenToAnArchive", name := "Token written to an archive", text := "The bot token in the Authorization header is stored with the archived request and shared with the archive.", category := (ctor Production.ThreatModel::Stride.informationDisclosure)})
+}
+
+definition{
+  name: modeledControlBoundedRequest,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlBoundedRequest", name := "Bounded request", text := "dispatch answers invalid for a request over 184 bytes before reading a field, and the guest allocates at most 368.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "acceptance vectors at the request bound, one byte over it, and at the guest allocation bound, replayed by prismpm verify"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlCursorMustAdvance,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlCursorMustAdvance", name := "Cursor must advance", text := "A page holding a message not after the cursor raises BackendError, proved for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv002Holds"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py test_fetch_stale_page"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlFingerprintAndProvenance,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlFingerprintAndProvenance", name := "Fingerprint and provenance", text := "The page verifies the holo digests before it runs, and the build signs its provenance as the repository workflow.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "actions/attest-build-provenance in the pages workflow"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "prism-code check of the holo identities in the page"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlGuildCheckedBeforePaging,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlGuildCheckedBeforePaging", name := "Guild checked before paging", text := "The channel's guild_id must equal the guild named; otherwise BackendError, proved for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv001Holds"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py test_fetch_wrong_guild"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlNoCapabilityGranted,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlNoCapabilityGranted", name := "No capability granted", text := "prism.toml grants the holo nothing and the model declares capabilitiesEmpty, so a guest import of any host capability is refused.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "prism-code check refuses an ungranted guest import"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlPageBoundedByTheLimit,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlPageBoundedByTheLimit", name := "Page bounded by the limit", text := "A page larger than --max-items raises BackendError, proved for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv003Holds"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py test_fetch_oversized_page"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlProofOfINV001,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV001", name := "Proof of INV-001", text := "It never answers paging when response is foreign. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv001Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV002,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV002", name := "Proof of INV-002", text := "It never answers paging when response is stale. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv002Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV003,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV003", name := "Proof of INV-003", text := "It never answers paging when returned is above limit. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv003Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV004,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV004", name := "Proof of INV-004", text := "It never answers paging when remaining is at most floor and sleep is no. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv004Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV005,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV005", name := "Proof of INV-005", text := "It never answers done when state is channel. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv005Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV006,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV006", name := "Proof of INV-006", text := "It always answers failed when response is error and state is not done and state is not refused. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv006Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV007,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV007", name := "Proof of INV-007", text := "It always answers done when state is done. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv007Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV008,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV008", name := "Proof of INV-008", text := "It always answers refused when state is refused. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv008Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlProofOfINV009,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlProofOfINV009", name := "Proof of INV-009", text := "It always answers failed when state is failed. The Lean kernel proves it for every request.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv009Holds"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlRateGate,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlRateGate", name := "Rate gate", text := "At --min-rate-to-sleep the client sleeps until the fractional X-RateLimit-Reset or raises RateLimitError, proved for every request; 429 honors Retry-After.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv004Holds"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py test_rate_limit_error, test_sleep_for_rate, test_rate_limit_headers"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlReadOnlyPermissionsDocumented,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlReadOnlyPermissionsDocumented", name := "Read-only permissions documented", text := "The backend only issues GET requests; the documentation asks for View Channel, Read Message History and the Message Content intent and nothing else.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.review), reference := "README.md, Discord section: required bot permissions"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "perceval/backends/core/discord.py: DiscordClient issues GET only"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlRegeneratedFromThePrompt,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlRegeneratedFromThePrompt", name := "Regenerated from the prompt", text := "The model is written from the prompt by the builder, and the build checks every theorem and replays every vector in the pinned SDK.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "prismpm verify in the SDK image prismpm.lock pins"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.review), reference := "app/prompt.json"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: modeledControlStrictDecoder,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlStrictDecoder", name := "Strict decoder", text := "Every field is decoded exactly: choices from their list, numbers as plain decimal digits within their bounds, single spaces between fields; anything else is invalid.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "malformed-request acceptance vectors, replayed in the compiled guest by prismpm verify"}) (nil Production.ThreatModel::Evidence))})
+}
+
+definition{
+  name: modeledControlTokenRemovedBeforeArchiving,
+  parameters: [],
+  result: Production.ThreatModel::ModeledControl,
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlTokenRemovedBeforeArchiving", name := "Token removed before archiving", text := "DiscordClient.sanitize_for_archive drops the Authorization header from every archived request; replay works with any token.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordClient.test_sanitize_for_archive"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordBackendArchive (replayed with a different token)"}) (nil Production.ThreatModel::Evidence)))})
+}
+
+definition{
+  name: mappingOversizedRequest,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatOversizedRequest", controls := (cons "Security::controlBoundedRequest" (nil String))})
+}
+
+definition{
+  name: mappingEndlessPaging,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatEndlessPaging", controls := (cons "Security::controlCursorMustAdvance" (nil String))})
+}
+
+definition{
+  name: mappingSubstitutedHolo,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatSubstitutedHolo", controls := (cons "Security::controlFingerprintAndProvenance" (nil String))})
+}
+
+definition{
+  name: mappingChannelOfAnotherGuildRead,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatChannelOfAnotherGuildRead", controls := (cons "Security::controlGuildCheckedBeforePaging" (nil String))})
+}
+
+definition{
+  name: mappingGrantedCapability,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatGrantedCapability", controls := (cons "Security::controlNoCapabilityGranted" (nil String))})
+}
+
+definition{
+  name: mappingOversizedPage,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatOversizedPage", controls := (cons "Security::controlPageBoundedByTheLimit" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV001,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV001", controls := (cons "Security::controlProofOfINV001" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV002,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV002", controls := (cons "Security::controlProofOfINV002" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV003,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV003", controls := (cons "Security::controlProofOfINV003" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV004,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV004", controls := (cons "Security::controlProofOfINV004" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV005,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV005", controls := (cons "Security::controlProofOfINV005" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV006,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV006", controls := (cons "Security::controlProofOfINV006" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV007,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV007", controls := (cons "Security::controlProofOfINV007" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV008,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV008", controls := (cons "Security::controlProofOfINV008" (nil String))})
+}
+
+definition{
+  name: mappingAnswerThatBreaksINV009,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatAnswerThatBreaksINV009", controls := (cons "Security::controlProofOfINV009" (nil String))})
+}
+
+definition{
+  name: mappingBotRateLimitedOffTheGuild,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatBotRateLimitedOffTheGuild", controls := (cons "Security::controlRateGate" (nil String))})
+}
+
+definition{
+  name: mappingOverPrivilegedBot,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatOverPrivilegedBot", controls := (cons "Security::controlReadOnlyPermissionsDocumented" (nil String))})
+}
+
+definition{
+  name: mappingTamperedModel,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatTamperedModel", controls := (cons "Security::controlRegeneratedFromThePrompt" (nil String))})
+}
+
+definition{
+  name: mappingMalformedRequest,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatMalformedRequest", controls := (cons "Security::controlStrictDecoder" (nil String))})
+}
+
+definition{
+  name: mappingTokenWrittenToAnArchive,
+  parameters: [],
+  result: Production.ThreatModel::ThreatMapping,
+  body: (record Production.ThreatModel::ThreatMapping {threat := "Security::threatTokenWrittenToAnArchive", controls := (cons "Security::controlTokenRemovedBeforeArchiving" (nil String))})
+}
+
+definition{
+  name: acceptedDeletedMessagesKept,
+  parameters: [],
+  result: Production.ThreatModel::AcceptedRisk,
+  body: (record Production.ThreatModel::AcceptedRisk {threat := "Security::threatDeletedMessagesKept", rationale := "Perceval keeps what it fetched for every chat backend; honoring deletions is the operator's duty under Discord's Developer Policy, and the documentation says so."})
+}
+
+definition{
+  name: acceptedSubstitutedHost,
+  parameters: [],
+  result: Production.ThreatModel::AcceptedRisk,
+  body: (record Production.ThreatModel::AcceptedRisk {threat := "Security::threatSubstitutedHost", rationale := "A page cannot defend against its own host. The holo carries signed build provenance a visitor can check, and the app can be rebuilt from its prompt."})
+}
+\end{semanticmodule}
+\end{lexlean}

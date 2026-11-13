@@ -1,0 +1,262 @@
+\begin{lexlean}{Features}
+\useglossary{lexlean.std.bool@1.2.0}
+\useglossary{lexlean.std.nat@1.2.0}
+\useglossary{prism.arch@1.0.0}
+\importmodule{PercevalDiscord}
+\importmodule{Architecture}
+\importmodule{Foundation.Arch}
+\title{feature}
+\begin{semanticmodule}
+definition{
+  name: acceptINV001,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv001Holds"
+}
+
+definition{
+  name: acceptINV002,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv002Holds"
+}
+
+definition{
+  name: acceptINV003,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv003Holds"
+}
+
+definition{
+  name: acceptINV004,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv004Holds"
+}
+
+definition{
+  name: acceptINV005,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv005Holds"
+}
+
+definition{
+  name: acceptINV006,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv006Holds"
+}
+
+definition{
+  name: acceptINV007,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv007Holds"
+}
+
+definition{
+  name: acceptINV008,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv008Holds"
+}
+
+definition{
+  name: acceptINV009,
+  parameters: [],
+  result: String,
+  body: "PercevalDiscordProofs::inv009Holds"
+}
+
+definition{
+  name: featureRule1,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When state is done, the answer is done.", calls := (cons "PercevalDiscord::rule1" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule2,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When state is refused, the answer is refused.", calls := (cons "PercevalDiscord::rule2" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule3,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When state is failed, the answer is failed.", calls := (cons "PercevalDiscord::rule3" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule4,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When response is foreign, the answer is refused.", calls := (cons "PercevalDiscord::rule4" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule5,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When response is stale, the answer is refused.", calls := (cons "PercevalDiscord::rule5" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule6,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When response is error, the answer is failed.", calls := (cons "PercevalDiscord::rule6" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule7,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When returned is above limit, the answer is refused.", calls := (cons "PercevalDiscord::rule7" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule8,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When state is paging and returned is below limit, the answer is done.", calls := (cons "PercevalDiscord::rule8" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRule9,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When remaining is at most floor and sleep is no, the answer is failed.", calls := (cons "PercevalDiscord::rule9" (cons "PercevalDiscord::judge" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureOtherwise,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "When no rule matches, the answer is paging.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureRefuseMalformed,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "A request that is not state, response, returned, limit, remaining, floor, sleep in order, separated by single spaces, or is over 184 bytes, is answered invalid.", calls := (cons "PercevalDiscord::dispatch" (cons "PercevalDiscord::decodeField1" (nil String))), acceptance := (cons "PercevalDiscord::application" (nil String))})
+}
+
+definition{
+  name: featureINV001,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It never answers paging when response is foreign.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV001" (nil String))})
+}
+
+definition{
+  name: featureINV002,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It never answers paging when response is stale.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV002" (nil String))})
+}
+
+definition{
+  name: featureINV003,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It never answers paging when returned is above limit.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV003" (nil String))})
+}
+
+definition{
+  name: featureINV004,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It never answers paging when remaining is at most floor and sleep is no.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV004" (nil String))})
+}
+
+definition{
+  name: featureINV005,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It never answers done when state is channel.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV005" (nil String))})
+}
+
+definition{
+  name: featureINV006,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It always answers failed when response is error and state is not done and state is not refused.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV006" (nil String))})
+}
+
+definition{
+  name: featureINV007,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It always answers done when state is done.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV007" (nil String))})
+}
+
+definition{
+  name: featureINV008,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It always answers refused when state is refused.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV008" (nil String))})
+}
+
+definition{
+  name: featureINV009,
+  parameters: [],
+  result: Foundation.Arch::Feature,
+  body: (record Foundation.Arch::Feature {statement := "It always answers failed when state is failed.", calls := (cons "PercevalDiscord::judge" (nil String)), acceptance := (cons "Features::acceptINV009" (nil String))})
+}
+
+definition{
+  name: journeyCommunityHealthAnalyst,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderCommunityHealthAnalyst", steps := (cons "Features::featureRule1" (cons "Features::featureRule2" (cons "Features::featureRule3" (cons "Features::featureRule4" (cons "Features::featureRule5" (cons "Features::featureRule6" (cons "Features::featureRule7" (cons "Features::featureRule8" (cons "Features::featureRule9" (cons "Features::featureOtherwise" (nil String)))))))))))})
+}
+
+definition{
+  name: journeyDiscordMember,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderDiscordMember", steps := (cons "Features::featureRule1" (cons "Features::featureRule2" (cons "Features::featureRule3" (cons "Features::featureRule4" (cons "Features::featureRule5" (cons "Features::featureRule6" (cons "Features::featureRule7" (cons "Features::featureRule8" (cons "Features::featureRule9" (cons "Features::featureOtherwise" (nil String)))))))))))})
+}
+
+definition{
+  name: journeyDiscordServerAdmin,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderDiscordServerAdmin", steps := (cons "Features::featureRule4" (cons "Features::featureINV001" (cons "Features::featureRule9" (cons "Features::featureINV004" (nil String)))))})
+}
+
+definition{
+  name: journeyGrimoireLabOperator,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderGrimoireLabOperator", steps := (cons "Features::featureOtherwise" (cons "Features::featureRule8" (cons "Features::featureINV005" (nil String))))})
+}
+
+definition{
+  name: journeyGrimoireLabSecurityReviewer,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderGrimoireLabSecurityReviewer", steps := (cons "Features::featureRule5" (cons "Features::featureINV002" (cons "Features::featureRule7" (cons "Features::featureINV003" (cons "Features::featureRule6" (cons "Features::featureINV006" (nil String)))))))})
+}
+
+definition{
+  name: journeyPercevalMaintainer,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderPercevalMaintainer", steps := (cons "Features::featureRule1" (cons "Features::featureRule2" (cons "Features::featureRule3" (nil String))))})
+}
+
+definition{
+  name: journeyVerifier,
+  parameters: [],
+  result: Foundation.Arch::Journey,
+  body: (record Foundation.Arch::Journey {actor := "Architecture::stakeholderVerifier", steps := (cons "Features::featureRefuseMalformed" (cons "Features::featureINV001" (cons "Features::featureINV002" (cons "Features::featureINV003" (cons "Features::featureINV004" (cons "Features::featureINV005" (cons "Features::featureINV006" (cons "Features::featureINV007" (cons "Features::featureINV008" (cons "Features::featureINV009" (nil String)))))))))))})
+}
+\end{semanticmodule}
+\end{lexlean}

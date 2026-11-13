@@ -1,0 +1,629 @@
+\begin{lexlean}{Architecture}
+\useglossary{lexlean.std.bool@1.2.0}
+\useglossary{lexlean.std.nat@1.2.0}
+\useglossary{prism.arch@1.0.0}
+\importmodule{Foundation.Arch}
+\title{architectural component}
+\begin{semanticmodule}
+definition{
+  name: standardIso25010,
+  parameters: [],
+  result: Foundation.Arch::StandardReference,
+  body: (record Foundation.Arch::StandardReference {standardIndex := 0, editionIndex := 0, standardId := "ISO-25010-2023", edition := "2023"})
+}
+
+definition{
+  name: standardIso27005,
+  parameters: [],
+  result: Foundation.Arch::StandardReference,
+  body: (record Foundation.Arch::StandardReference {standardIndex := 1, editionIndex := 0, standardId := "ISO-27005-2022", edition := "2022"})
+}
+
+definition{
+  name: standardIso27034,
+  parameters: [],
+  result: Foundation.Arch::StandardReference,
+  body: (record Foundation.Arch::StandardReference {standardIndex := 2, editionIndex := 0, standardId := "ISO-27034-1-2011", edition := "2011"})
+}
+
+definition{
+  name: standardIso42010,
+  parameters: [],
+  result: Foundation.Arch::StandardReference,
+  body: (record Foundation.Arch::StandardReference {standardIndex := 4, editionIndex := 0, standardId := "ISO-42010-2022", edition := "2022"})
+}
+
+definition{
+  name: stakeholderCommunityHealthAnalyst,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 0, name := "Community health analyst", text := "Measures CHAOSS metrics such as Chat Platform Inclusivity and needs Discord data in the same item shape as Slack, Mattermost and Rocket.Chat."})
+}
+
+definition{
+  name: stakeholderDiscordMember,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 1, name := "Discord member", text := "Writes the messages that are collected and needs their content to stay inside the guild's analytics, with bots told apart from people."})
+}
+
+definition{
+  name: stakeholderDiscordServerAdmin,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 2, name := "Discord server admin", text := "Adds the read-only bot to the guild and needs it to read only the channels it is granted, with the least permissions, without exhausting the guild's rate limits."})
+}
+
+definition{
+  name: stakeholderGrimoireLabOperator,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 3, name := "GrimoireLab operator", text := "Runs Perceval and GrimoireLab for a community and needs every message of the channels they name, resumable from a date and replayable from an archive."})
+}
+
+definition{
+  name: stakeholderGrimoireLabSecurityReviewer,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 4, name := "GrimoireLab security reviewer", text := "Triages reports under GrimoireLab's SECURITY.md and needs the bot token never written to an archive or log, and malformed responses refused."})
+}
+
+definition{
+  name: stakeholderPercevalMaintainer,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 5, name := "Perceval maintainer", text := "Reviews and maintains Perceval's backends for CHAOSS GrimoireLab and needs a new backend that follows the existing ones, adds no dependency, and is tested offline by the suite upstream already runs."})
+}
+
+definition{
+  name: stakeholderVerifier,
+  parameters: [],
+  result: Foundation.Arch::Stakeholder,
+  body: (record Foundation.Arch::Stakeholder {index := 6, name := "Verifier", text := "Anyone who loads the holo, checks its fingerprint and replays its acceptance vectors before trusting an answer."})
+}
+
+definition{
+  name: concernCompleteChannelHistory,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 0, name := "Complete channel history", text := "Every message sent at or after from_date is yielded exactly once, oldest first, by paging on the after snowflake."})
+}
+
+definition{
+  name: concernCorrectAnswers,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 1, name := "Correct answers", text := "Every well-formed request is answered by the first rule that matches it, or paging when none does, as the spec states."})
+}
+
+definition{
+  name: concernFollowsUpstreamNorms,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 2, name := "Follows upstream norms", text := "New files only, flake8 clean, a releases/unreleased changelog entry, DCO sign-off, and tests run by tests/run_tests.py with httpretty, as CONTRIBUTING_WITH_CODE.md asks."})
+}
+
+definition{
+  name: concernIntegrityOfThePublishedApp,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 3, name := "Integrity of the published app", text := "What a visitor runs is the holo the build verified, with its fingerprint and signed provenance beside it."})
+}
+
+definition{
+  name: concernLeastPrivilege,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 4, name := "Least privilege", text := "The bot needs only View Channel, Read Message History and the Message Content intent, and a channel of another guild is refused."})
+}
+
+definition{
+  name: concernProvedGuarantees,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 5, name := "Proved guarantees", text := "Each of the 9 properties of the spec holds for every request, proved by the Lean kernel."})
+}
+
+definition{
+  name: concernRateLimitsRespected,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 6, name := "Rate limits respected", text := "The client stops or sleeps at --min-rate-to-sleep and parses Discord's fractional X-RateLimit-Reset."})
+}
+
+definition{
+  name: concernRefusedMalformedRequests,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 7, name := "Refused malformed requests", text := "A request that is not the 7 fields in order, or is longer than 184 bytes, is answered invalid and never guessed."})
+}
+
+definition{
+  name: concernRefusedMalformedResponses,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 8, name := "Refused malformed responses", text := "A page larger than the limit or holding a message not after the cursor raises BackendError instead of looping."})
+}
+
+definition{
+  name: concernTokenNeverDisclosed,
+  parameters: [],
+  result: Foundation.Arch::Concern,
+  body: (record Foundation.Arch::Concern {index := 9, name := "Token never disclosed", text := "The Authorization header is removed before a request is archived, and the token is never logged."})
+}
+
+definition{
+  name: componentBrowser,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 0, kind := (ctor Foundation.Arch::ComponentKind.externalSystem), name := "Browser", text := "The visitor's web browser, which loads the page and runs the Perceval Discord backend guest."})
+}
+
+definition{
+  name: componentDiscordAPIV10,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 1, kind := (ctor Foundation.Arch::ComponentKind.externalSystem), name := "Discord API v10", text := "https://discord.com/api/v10: GET /channels/{id} and GET /channels/{id}/messages, authenticated with Authorization: Bot <token>."})
+}
+
+definition{
+  name: componentGitHubPages,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 2, kind := (ctor Foundation.Arch::ComponentKind.externalSystem), name := "GitHub Pages", text := "Serves the page and the holo from the repository Pages workflow."})
+}
+
+definition{
+  name: componentGrimoireLabChronicler,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 3, kind := (ctor Foundation.Arch::ComponentKind.service), name := "GrimoireLab Chronicler", text := "Turns the backend's items into GrimoireLab CloudEvents (grimoirelab-chronicler, GrimoireLab 2.0)."})
+}
+
+definition{
+  name: componentPercevalArchive,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 4, kind := (ctor Foundation.Arch::ComponentKind.database), name := "Perceval archive", text := "The SQLite archive Perceval writes with --archive-path and replays with --fetch-archive; requests are stored after sanitize_for_archive."})
+}
+
+definition{
+  name: componentPercevalDiscord,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 5, kind := (ctor Foundation.Arch::ComponentKind.cliAdapter), name := "perceval discord", text := "perceval discord <guild> <channel> -t <token> [--from-date] [--max-items] [--sleep-for-rate] [--min-rate-to-sleep] [--archive-path]: the command DiscordCommand declares."})
+}
+
+definition{
+  name: componentPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 6, kind := (ctor Foundation.Arch::ComponentKind.service), name := "Perceval Discord backend guest", text := "The Core-Wasm guest built from the model: it answers one request of at most 184 bytes with one answer of at most 64."})
+}
+
+definition{
+  name: componentPercevalDiscordBackendPage,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 7, kind := (ctor Foundation.Arch::ComponentKind.staticSite), name := "Perceval Discord backend page", text := "The page the template publishes: the holo, its fingerprint, its provenance and its acceptance vectors."})
+}
+
+definition{
+  name: componentPrismBuild,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 8, kind := (ctor Foundation.Arch::ComponentKind.cliAdapter), name := "Prism build", text := "prismpm verify in the SDK image prismpm.lock pins: it checks every theorem, builds the guest and replays every vector."})
+}
+
+definition{
+  name: componentSourceRepository,
+  parameters: [],
+  result: Foundation.Arch::Component,
+  body: (record Foundation.Arch::Component {index := 9, kind := (ctor Foundation.Arch::ComponentKind.externalSystem), name := "Source repository", text := "The repository that holds the prompt, the model and its gate."})
+}
+
+definition{
+  name: edgeBrowserToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 0, fromIndex := 0, toIndex := 6, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgeDiscordAPIV10ToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 1, fromIndex := 1, toIndex := 6, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgeGitHubPagesToBrowser,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 2, fromIndex := 2, toIndex := 0, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgeGrimoireLabChroniclerToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 3, fromIndex := 3, toIndex := 6, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalArchiveToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 4, fromIndex := 4, toIndex := 6, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordBackendGuestToBrowser,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 5, fromIndex := 6, toIndex := 0, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordBackendGuestToDiscordAPIV10,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 6, fromIndex := 6, toIndex := 1, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordBackendGuestToGrimoireLabChronicler,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 7, fromIndex := 6, toIndex := 3, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordBackendGuestToPercevalArchive,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 8, fromIndex := 6, toIndex := 4, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordBackendGuestToPercevalDiscord,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 9, fromIndex := 6, toIndex := 5, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordBackendPageToGitHubPages,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 10, fromIndex := 7, toIndex := 2, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePercevalDiscordToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 11, fromIndex := 5, toIndex := 6, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePrismBuildToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 12, fromIndex := 8, toIndex := 6, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgePrismBuildToPercevalDiscordBackendPage,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 13, fromIndex := 8, toIndex := 7, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: edgeSourceRepositoryToPrismBuild,
+  parameters: [],
+  result: Foundation.Arch::Edge,
+  body: (record Foundation.Arch::Edge {index := 14, fromIndex := 9, toIndex := 8, kind := (ctor Foundation.Arch::EdgeKind.dataFlow)})
+}
+
+definition{
+  name: viewpointCommunityHealthAnalystCompleteChannelHistory,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 0, stakeholderIndex := 0, concernIndex := 0, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointDiscordMemberLeastPrivilege,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 1, stakeholderIndex := 1, concernIndex := 4, modelKindIndex := 2})
+}
+
+definition{
+  name: viewpointDiscordMemberTokenNeverDisclosed,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 2, stakeholderIndex := 1, concernIndex := 9, modelKindIndex := 2})
+}
+
+definition{
+  name: viewpointDiscordServerAdminLeastPrivilege,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 3, stakeholderIndex := 2, concernIndex := 4, modelKindIndex := 2})
+}
+
+definition{
+  name: viewpointDiscordServerAdminRateLimitsRespected,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 4, stakeholderIndex := 2, concernIndex := 6, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointGrimoireLabOperatorCompleteChannelHistory,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 5, stakeholderIndex := 3, concernIndex := 0, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointGrimoireLabOperatorCorrectAnswers,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 6, stakeholderIndex := 3, concernIndex := 1, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointGrimoireLabSecurityReviewerRefusedMalformedResponses,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 7, stakeholderIndex := 4, concernIndex := 8, modelKindIndex := 2})
+}
+
+definition{
+  name: viewpointGrimoireLabSecurityReviewerTokenNeverDisclosed,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 8, stakeholderIndex := 4, concernIndex := 9, modelKindIndex := 2})
+}
+
+definition{
+  name: viewpointPercevalMaintainerCorrectAnswers,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 9, stakeholderIndex := 5, concernIndex := 1, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointPercevalMaintainerFollowsUpstreamNorms,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 10, stakeholderIndex := 5, concernIndex := 2, modelKindIndex := 0})
+}
+
+definition{
+  name: viewpointPercevalMaintainerProvedGuarantees,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 11, stakeholderIndex := 5, concernIndex := 5, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointVerifierIntegrityOfThePublishedApp,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 12, stakeholderIndex := 6, concernIndex := 3, modelKindIndex := 2})
+}
+
+definition{
+  name: viewpointVerifierProvedGuarantees,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 13, stakeholderIndex := 6, concernIndex := 5, modelKindIndex := 1})
+}
+
+definition{
+  name: viewpointVerifierRefusedMalformedRequests,
+  parameters: [],
+  result: Foundation.Arch::Viewpoint,
+  body: (record Foundation.Arch::Viewpoint {index := 14, stakeholderIndex := 6, concernIndex := 7, modelKindIndex := 2})
+}
+
+definition{
+  name: viewCommunityHealthAnalystCompleteChannelHistory,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 0, viewpointIndex := 0, modelKindIndex := 1})
+}
+
+definition{
+  name: viewDiscordMemberLeastPrivilege,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 1, viewpointIndex := 1, modelKindIndex := 2})
+}
+
+definition{
+  name: viewDiscordMemberTokenNeverDisclosed,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 2, viewpointIndex := 2, modelKindIndex := 2})
+}
+
+definition{
+  name: viewDiscordServerAdminLeastPrivilege,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 3, viewpointIndex := 3, modelKindIndex := 2})
+}
+
+definition{
+  name: viewDiscordServerAdminRateLimitsRespected,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 4, viewpointIndex := 4, modelKindIndex := 1})
+}
+
+definition{
+  name: viewGrimoireLabOperatorCompleteChannelHistory,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 5, viewpointIndex := 5, modelKindIndex := 1})
+}
+
+definition{
+  name: viewGrimoireLabOperatorCorrectAnswers,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 6, viewpointIndex := 6, modelKindIndex := 1})
+}
+
+definition{
+  name: viewGrimoireLabSecurityReviewerRefusedMalformedResponses,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 7, viewpointIndex := 7, modelKindIndex := 2})
+}
+
+definition{
+  name: viewGrimoireLabSecurityReviewerTokenNeverDisclosed,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 8, viewpointIndex := 8, modelKindIndex := 2})
+}
+
+definition{
+  name: viewPercevalMaintainerCorrectAnswers,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 9, viewpointIndex := 9, modelKindIndex := 1})
+}
+
+definition{
+  name: viewPercevalMaintainerFollowsUpstreamNorms,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 10, viewpointIndex := 10, modelKindIndex := 0})
+}
+
+definition{
+  name: viewPercevalMaintainerProvedGuarantees,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 11, viewpointIndex := 11, modelKindIndex := 1})
+}
+
+definition{
+  name: viewVerifierIntegrityOfThePublishedApp,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 12, viewpointIndex := 12, modelKindIndex := 2})
+}
+
+definition{
+  name: viewVerifierProvedGuarantees,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 13, viewpointIndex := 13, modelKindIndex := 1})
+}
+
+definition{
+  name: viewVerifierRefusedMalformedRequests,
+  parameters: [],
+  result: Foundation.Arch::View,
+  body: (record Foundation.Arch::View {index := 14, viewpointIndex := 14, modelKindIndex := 2})
+}
+
+definition{
+  name: componentRecords,
+  parameters: [],
+  result: (List Foundation.Arch::Component),
+  body: (cons (componentBrowser) (cons (componentDiscordAPIV10) (cons (componentGitHubPages) (cons (componentGrimoireLabChronicler) (cons (componentPercevalArchive) (cons (componentPercevalDiscord) (cons (componentPercevalDiscordBackendGuest) (cons (componentPercevalDiscordBackendPage) (cons (componentPrismBuild) (cons (componentSourceRepository) (nil Foundation.Arch::Component)))))))))))
+}
+
+definition{
+  name: edgeRecords,
+  parameters: [],
+  result: (List Foundation.Arch::Edge),
+  body: (cons (edgeBrowserToPercevalDiscordBackendGuest) (cons (edgeDiscordAPIV10ToPercevalDiscordBackendGuest) (cons (edgeGitHubPagesToBrowser) (cons (edgeGrimoireLabChroniclerToPercevalDiscordBackendGuest) (cons (edgePercevalArchiveToPercevalDiscordBackendGuest) (cons (edgePercevalDiscordBackendGuestToBrowser) (cons (edgePercevalDiscordBackendGuestToDiscordAPIV10) (cons (edgePercevalDiscordBackendGuestToGrimoireLabChronicler) (cons (edgePercevalDiscordBackendGuestToPercevalArchive) (cons (edgePercevalDiscordBackendGuestToPercevalDiscord) (cons (edgePercevalDiscordBackendPageToGitHubPages) (cons (edgePercevalDiscordToPercevalDiscordBackendGuest) (cons (edgePrismBuildToPercevalDiscordBackendGuest) (cons (edgePrismBuildToPercevalDiscordBackendPage) (cons (edgeSourceRepositoryToPrismBuild) (nil Foundation.Arch::Edge))))))))))))))))
+}
+
+definition{
+  name: viewpointRecords,
+  parameters: [],
+  result: (List Foundation.Arch::Viewpoint),
+  body: (cons (viewpointCommunityHealthAnalystCompleteChannelHistory) (cons (viewpointDiscordMemberLeastPrivilege) (cons (viewpointDiscordMemberTokenNeverDisclosed) (cons (viewpointDiscordServerAdminLeastPrivilege) (cons (viewpointDiscordServerAdminRateLimitsRespected) (cons (viewpointGrimoireLabOperatorCompleteChannelHistory) (cons (viewpointGrimoireLabOperatorCorrectAnswers) (cons (viewpointGrimoireLabSecurityReviewerRefusedMalformedResponses) (cons (viewpointGrimoireLabSecurityReviewerTokenNeverDisclosed) (cons (viewpointPercevalMaintainerCorrectAnswers) (cons (viewpointPercevalMaintainerFollowsUpstreamNorms) (cons (viewpointPercevalMaintainerProvedGuarantees) (cons (viewpointVerifierIntegrityOfThePublishedApp) (cons (viewpointVerifierProvedGuarantees) (cons (viewpointVerifierRefusedMalformedRequests) (nil Foundation.Arch::Viewpoint))))))))))))))))
+}
+
+definition{
+  name: viewRecords,
+  parameters: [],
+  result: (List Foundation.Arch::View),
+  body: (cons (viewCommunityHealthAnalystCompleteChannelHistory) (cons (viewDiscordMemberLeastPrivilege) (cons (viewDiscordMemberTokenNeverDisclosed) (cons (viewDiscordServerAdminLeastPrivilege) (cons (viewDiscordServerAdminRateLimitsRespected) (cons (viewGrimoireLabOperatorCompleteChannelHistory) (cons (viewGrimoireLabOperatorCorrectAnswers) (cons (viewGrimoireLabSecurityReviewerRefusedMalformedResponses) (cons (viewGrimoireLabSecurityReviewerTokenNeverDisclosed) (cons (viewPercevalMaintainerCorrectAnswers) (cons (viewPercevalMaintainerFollowsUpstreamNorms) (cons (viewPercevalMaintainerProvedGuarantees) (cons (viewVerifierIntegrityOfThePublishedApp) (cons (viewVerifierProvedGuarantees) (cons (viewVerifierRefusedMalformedRequests) (nil Foundation.Arch::View))))))))))))))))
+}
+
+definition{
+  name: edgesKnown,
+  parameters: [count : Nat, records : (List Foundation.Arch::Edge)],
+  result: Bool,
+  body: (match records
+    | List.nil => true
+    | List.cons edge rest => (((project edge fromIndex) <? count) && (((project edge toIndex) <? count) && (edgesKnown count rest)))),
+  recursive_argument: records
+}
+
+definition{
+  name: viewpointsKnown,
+  parameters: [
+    stakeholderCount : Nat,
+    concernCount : Nat,
+    records : (List Foundation.Arch::Viewpoint)
+  ],
+  result: Bool,
+  body: (match records
+    | List.nil => true
+    | List.cons viewpoint rest => (((project viewpoint stakeholderIndex) <? stakeholderCount) && (((project viewpoint concernIndex) <? concernCount) && (((project viewpoint modelKindIndex) <? 3) && (viewpointsKnown stakeholderCount concernCount rest))))),
+  recursive_argument: records
+}
+
+definition{
+  name: viewMatches,
+  parameters: [view : Foundation.Arch::View, viewpoints : (List Foundation.Arch::Viewpoint)],
+  result: Bool,
+  body: (match viewpoints
+    | List.nil => false
+    | List.cons viewpoint rest => ((((project viewpoint index) =? (project view viewpointIndex)) && ((project viewpoint modelKindIndex) =? (project view modelKindIndex))) || (viewMatches view rest))),
+  recursive_argument: viewpoints
+}
+
+definition{
+  name: viewsConform,
+  parameters: [
+    viewpoints : (List Foundation.Arch::Viewpoint),
+    records : (List Foundation.Arch::View)
+  ],
+  result: Bool,
+  body: (match records
+    | List.nil => true
+    | List.cons view rest => ((viewMatches view viewpoints) && (viewsConform viewpoints rest))),
+  recursive_argument: records
+}
+
+definition{
+  name: architectureValid,
+  parameters: [],
+  result: Bool,
+  body: ((edgesKnown 10 (edgeRecords)) && ((viewpointsKnown 7 10 (viewpointRecords)) && (viewsConform (viewpointRecords) (viewRecords))))
+}
+
+theorem{
+  name: architectureDescriptionHolds,
+  parameters: [],
+  statement: ((architectureValid) = true),
+  proof: decide{}
+}
+\end{semanticmodule}
+\end{lexlean}

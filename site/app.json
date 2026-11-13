@@ -1,18 +1,21 @@
 {
-  "name": "Template contract",
-  "shortName": "Contract",
-  "live": "https://uor-foundation.github.io/template/",
-  "purpose": "Checks each universal policy file of a UOR template repository against its locked digest. Send the six expected and observed digests; it answers conformant, or names every file that drifted, and invalid request for anything else.",
-  "inputLabel": "Expected and observed digests",
-  "placeholder": "hex: followed by 384 bytes",
-  "submitLabel": "Check",
-  "outputLabel": "Verdict",
+  "name": "Perceval Discord backend",
+  "shortName": "Perceval",
+  "live": "https://uor-foundation.github.io/community/",
+  "purpose": "Decide the next state of the Discord backend's fetch from the state it is in and the last API response: request the channel, page through its messages, finish, refuse a response that breaks the contract, or fail. Send state, response, returned, limit, remaining, floor or sleep, separated by spaces; it answers channel, paging, done, refused or failed, and invalid request for anything else.",
+  "inputLabel": "Request: state response returned limit remaining floor sleep",
+  "placeholder": "channel ok 0 100 5 1 no",
+  "submitLabel": "Decide",
+  "outputLabel": "Answer",
   "answers": {
     "positive": [
-      "conformant"
+      "channel"
     ],
     "negative": [
-      "drift:*"
+      "paging",
+      "done",
+      "refused",
+      "failed"
     ],
     "refusal": "invalid request"
   },
@@ -20,25 +23,113 @@
     "headline": "Says conformant exactly when every policy file matches its lock.",
     "detail": "Each of the six universal policy files is compared with the digest the lock records, and any file that drifted is named."
   },
-  "claim": "TC-01: the checker answers conformant exactly when every universal policy file's observed digest equals its locked digest.",
+  "claim": "PD-01: the app never answers paging when response is foreign. PD-02: the app never answers paging when response is stale. PD-03: the app never answers paging when returned is above limit. PD-04: the app never answers paging when remaining is at most floor and sleep is no. PD-05: the app never answers done when state is channel. PD-06: the app always answers failed when response is error and state is not done and state is not refused. PD-07: the app always answers done when state is done. PD-08: the app always answers refused when state is refused. PD-09: the app always answers failed when state is failed.",
   "proposition": {
-    "name": "Conformant",
-    "text": "Conformant observation :=\n  SameDigest devcontainer.expected devcontainer.observed\n  /\\ SameDigest bootstrap.expected bootstrap.observed\n  /\\ SameDigest agents.expected agents.observed\n  /\\ SameDigest verification.expected verification.observed\n  /\\ SameDigest prismpmLock.expected prismpmLock.observed\n  /\\ SameDigest templateContract.expected templateContract.observed\n\nSameDigest left right :=\n  left.w0 = right.w0 /\\ left.w1 = right.w1 /\\ left.w2 = right.w2 /\\ left.w3 = right.w3",
-    "plain": "Every one of the six universal policy files has the digest the lock says it has."
+    "name": "judge",
+    "text": "judge request :=\n  state is done → done\n  state is refused → refused\n  state is failed → failed\n  response is foreign → refused\n  response is stale → refused\n  response is error → failed\n  returned is above limit → refused\n  state is paging and returned is below limit → done\n  remaining is at most floor and sleep is no → failed\n  otherwise → paging",
+    "plain": "Decide the next state of the Discord backend's fetch from the state it is in and the last API response: request the channel, page through its messages, finish, refuse a response that breaks the contract, or fail."
   },
   "theorems": [
     {
-      "name": "conformant_decides",
-      "statement": "conformant observation = true ↔ Conformant observation, for every observation",
-      "how": "Proved by simplification over the record fields, checked by the Lean kernel by prismpm verify in CI",
-      "where": "app/src/Contract.lex.tex"
+      "name": "inv001Holds",
+      "statement": "no request meets breaksInv001: the app never answers paging when response is foreign",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv002Holds",
+      "statement": "no request meets breaksInv002: the app never answers paging when response is stale",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv003Holds",
+      "statement": "no request meets breaksInv003: the app never answers paging when returned is above limit",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv004Holds",
+      "statement": "no request meets breaksInv004: the app never answers paging when remaining is at most floor and sleep is no",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv005Holds",
+      "statement": "no request meets breaksInv005: the app never answers done when state is channel",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv006Holds",
+      "statement": "no request meets breaksInv006: the app always answers failed when response is error and state is not done and state is not refused",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv007Holds",
+      "statement": "no request meets breaksInv007: the app always answers done when state is done",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv008Holds",
+      "statement": "no request meets breaksInv008: the app always answers refused when state is refused",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
+    },
+    {
+      "name": "inv009Holds",
+      "statement": "no request meets breaksInv009: the app always answers failed when state is failed",
+      "how": "Proved by linear arithmetic, checked by the Lean kernel on the UOR MCP server and again by prismpm verify in CI",
+      "where": "app/src/PercevalDiscordProofs.lex.tex"
     }
   ],
   "pinned": [
     {
-      "name": "contract_tc_01",
-      "what": "The theorem's statement and axioms, the six files the proposition names against template-contract.json, that a drifted file is named in the verdict, and that the verdict is decided by conformant. A string-matching test, not a theorem: a planted defect fails it.",
-      "where": "crates/conformance/tests/contract.rs"
+      "name": "perceval_discord_pd_01",
+      "what": "PD-01's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_02",
+      "what": "PD-02's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_03",
+      "what": "PD-03's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_04",
+      "what": "PD-04's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_05",
+      "what": "PD-05's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_06",
+      "what": "PD-06's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_07",
+      "what": "PD-07's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_08",
+      "what": "PD-08's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
+    },
+    {
+      "name": "perceval_discord_pd_09",
+      "what": "PD-09's condition and the theorem that no request meets it. A string-matching test, not a theorem: a planted defect fails it.",
+      "where": "crates/conformance/tests/perceval_discord.rs"
     }
   ],
   "trusted": [
@@ -65,14 +156,33 @@
   ],
   "attestations": {
     "proof": {
-      "id": "not recorded for the template's own app; an instance records the UOR MCP server's attestation here",
-      "url": "https://github.com/UOR-Foundation/template/actions/workflows/bootstrap.yml"
+      "id": "not recorded: the proof ran in the SDK image, not on the UOR MCP server",
+      "url": "https://github.com/UOR-Foundation/community/actions/workflows/bootstrap.yml"
     },
     "build": {
-      "id": "printed by prismpm verify in every pages run; an instance records it here",
-      "url": "https://github.com/UOR-Foundation/template/actions/workflows/pages.yml"
+      "id": "printed by prismpm verify in every pages run",
+      "url": "https://github.com/UOR-Foundation/community/actions/workflows/pages.yml"
     }
   },
-  "repository": "https://github.com/UOR-Foundation/template",
-  "report": "https://github.com/UOR-Foundation/template/blob/main/TEMPLATE-VERIFICATION.md"
+  "repository": "https://github.com/UOR-Foundation/community",
+  "report": "https://github.com/UOR-Foundation/community/blob/main/TEMPLATE-VERIFICATION.md",
+  "brand": {
+    "name": "CHAOSS GrimoireLab",
+    "logo": "brand/upstream/chaoss-color.svg",
+    "logoDark": "brand/upstream/chaoss-white.svg",
+    "stylesheet": "card.css",
+    "lock": "brand/upstream/brand.lock.json",
+    "sources": [
+      {
+        "repository": "chaoss/community",
+        "commit": "e3de23a5c7e78fc61a5ae0d78782ed46490ac9c5",
+        "url": "https://github.com/chaoss/community/tree/e3de23a5c7e78fc61a5ae0d78782ed46490ac9c5"
+      },
+      {
+        "repository": "chaoss/grimoirelab",
+        "commit": "61c957b1cf1aecacb40bb1875d4864b6fd679192",
+        "url": "https://github.com/chaoss/grimoirelab/tree/61c957b1cf1aecacb40bb1875d4864b6fd679192"
+      }
+    ]
+  }
 }
