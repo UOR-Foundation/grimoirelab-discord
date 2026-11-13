@@ -1,7 +1,7 @@
 {
   "name": "Perceval Discord backend",
   "shortName": "Perceval",
-  "live": "https://uor-foundation.github.io/community/",
+  "live": "https://uor-foundation.github.io/grimoirelab-discord/",
   "purpose": "Decide the next state of the Discord backend's fetch from the state it is in and the last API response: request the channel, page through its messages, finish, refuse a response that breaks the contract, or fail. Send state, response, returned, limit, remaining, floor or sleep, separated by spaces; it answers channel, paging, done, refused or failed, and invalid request for anything else.",
   "inputLabel": "Request: state response returned limit remaining floor sleep",
   "placeholder": "channel ok 0 100 5 1 no",
@@ -157,15 +157,15 @@
   "attestations": {
     "proof": {
       "id": "not recorded: the proof ran in the SDK image, not on the UOR MCP server",
-      "url": "https://github.com/UOR-Foundation/community/actions/workflows/bootstrap.yml"
+      "url": "https://github.com/UOR-Foundation/grimoirelab-discord/actions/workflows/bootstrap.yml"
     },
     "build": {
       "id": "printed by prismpm verify in every pages run",
-      "url": "https://github.com/UOR-Foundation/community/actions/workflows/pages.yml"
+      "url": "https://github.com/UOR-Foundation/grimoirelab-discord/actions/workflows/pages.yml"
     }
   },
-  "repository": "https://github.com/UOR-Foundation/community",
-  "report": "https://github.com/UOR-Foundation/community/blob/main/TEMPLATE-VERIFICATION.md",
+  "repository": "https://github.com/UOR-Foundation/grimoirelab-discord",
+  "report": "https://github.com/UOR-Foundation/grimoirelab-discord/blob/main/TEMPLATE-VERIFICATION.md",
   "brand": {
     "name": "CHAOSS GrimoireLab",
     "logo": "brand/upstream/chaoss-color.svg",
