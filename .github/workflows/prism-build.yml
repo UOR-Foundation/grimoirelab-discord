@@ -1,0 +1,62 @@
+# Checks that every generated file is the build of app/prompt.json with the
+# builder prism/builder.lock.json pins. `just vv` (bootstrap.yml) verifies the
+# app itself; this job only guards against a generated file edited by hand or
+# left stale. Project content, not universal policy.
+name: prism-build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'prism/**'
+      - 'model/**'
+      - 'features/**'
+      - 'crates/conformance/tests/**'
+      - 'openspec/**'
+      - 'site/**'
+      - 'CONFORMANCE.md'
+      - '.github/workflows/prism-build.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'prism/**'
+      - 'model/**'
+      - 'features/**'
+      - 'crates/conformance/tests/**'
+      - 'openspec/**'
+      - 'site/**'
+      - 'CONFORMANCE.md'
+      - '.github/workflows/prism-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: prism-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: generated files are the build of app/prompt.json
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          # build.sh dates the page by the prompt's last commit.
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: The builder at the pinned commit, fetched by an earlier run
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with:
+          # Keyed by the lock that names the builder commit; build.sh re-derives
+          # the checkout's commit on read and refetches any other.
+          path: ~/.cache/prism-builder
+          key: prism-builder-${{ hashFiles('prism/builder.lock.json') }}
+      - name: Regenerate and compare
+        run: prism/build.sh --check
