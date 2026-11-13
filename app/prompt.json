@@ -996,7 +996,6 @@
       "propext"
     ],
     "inv003Holds": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
     ],
@@ -1006,7 +1005,6 @@
       "propext"
     ],
     "inv005Holds": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
     ],
