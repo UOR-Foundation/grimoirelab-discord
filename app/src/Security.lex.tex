@@ -488,7 +488,7 @@ definition{
   name: controlSet,
   parameters: [],
   result: Production.ThreatModel::ControlSet,
-  body: (record Production.ThreatModel::ControlSet {title := "Perceval Discord backend security controls", text := "Perceval Discord backend answers one request with one answer in a Core-Wasm guest granted no capability. Decide the next state of the Discord backend's fetch from the state it is in and the last API response: request the channel, page through its messages, finish, refuse a response that breaks the contract, or fail.", version := "0.1.0", lastModified := "2026-11-13T22:17:43Z"})
+  body: (record Production.ThreatModel::ControlSet {title := "Perceval Discord backend security controls", text := "Perceval Discord backend answers one request with one answer in a Core-Wasm guest granted no capability. Decide the next state of the Discord backend's fetch from the state it is in and the last API response: request the channel, page through its messages, finish, refuse a response that breaks the contract, or fail.", version := "0.1.0", lastModified := "2026-11-13T22:44:07Z"})
 }
 
 definition{
@@ -782,7 +782,7 @@ definition{
   name: modeledControlRateGate,
   parameters: [],
   result: Production.ThreatModel::ModeledControl,
-  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlRateGate", name := "Rate gate", text := "At --min-rate-to-sleep the client sleeps until the fractional X-RateLimit-Reset or raises RateLimitError, proved for every request; 429 honors Retry-After.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv004Holds"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py test_rate_limit_error, test_sleep_for_rate, test_rate_limit_headers"}) (nil Production.ThreatModel::Evidence)))})
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlRateGate", name := "Rate gate", text := "At --min-rate-to-sleep the client sleeps until the bucket resets, taken from X-RateLimit-Reset-After so the local clock cannot skew it (the fractional X-RateLimit-Reset otherwise), or raises RateLimitError, proved for every request; 429 honors Retry-After.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.proof), reference := "PercevalDiscordProofs::inv004Holds"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py test_rate_limit_error, test_sleep_for_rate, test_rate_limit_headers, test_rate_limit_reset_after"}) (nil Production.ThreatModel::Evidence)))})
 }
 
 definition{
@@ -810,7 +810,7 @@ definition{
   name: modeledControlTokenRemovedBeforeArchiving,
   parameters: [],
   result: Production.ThreatModel::ModeledControl,
-  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlTokenRemovedBeforeArchiving", name := "Token removed before archiving", text := "DiscordClient.sanitize_for_archive drops the Authorization header from every archived request; replay works with any token.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordClient.test_sanitize_for_archive"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordBackendArchive (replayed with a different token)"}) (nil Production.ThreatModel::Evidence)))})
+  body: (record Production.ThreatModel::ModeledControl {control := "Security::controlTokenRemovedBeforeArchiving", name := "Token removed before archiving", text := "The archive pickles the whole response, which keeps the sent request with the session's Authorization header, so DiscordClient removes the token from each response before it is archived, and sanitize_for_archive drops it from the archived request; replay works with any token. Found by the live validation's archive check.", evidence := (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordBackendArchive.test_archive_holds_no_token"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordClient.test_sanitize_for_archive"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "tests/test_discord.py TestDiscordBackendArchive (replayed with a different token)"}) (cons (record Production.ThreatModel::Evidence {kind := (ctor Production.ThreatModel::EvidenceKind.gate), reference := "UOR-Foundation/community oracles/grimoirelab/live: discord.archive.token_free on every live replay probe"}) (nil Production.ThreatModel::Evidence)))))})
 }
 
 definition{
