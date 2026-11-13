@@ -11,7 +11,7 @@
       "failed"
     ]
   },
-  "repository": "UOR-Foundation/community",
+  "repository": "UOR-Foundation/grimoirelab-discord",
   "license": "GPL-3.0-or-later",
   "app": {
     "name": "perceval-discord",
