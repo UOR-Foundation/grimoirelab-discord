@@ -1,0 +1,458 @@
+\begin{lexlean}{PercevalDiscordProofs}
+\useglossary{lexlean.std.bool@1.2.0}
+\useglossary{lexlean.std.nat@1.2.0}
+\useglossary{prism.arch@1.0.0}
+\importmodule{PercevalDiscord}
+\title{Text application model}
+\begin{semanticmodule}
+definition{
+  name: breaksInv001,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request response) =? (PercevalDiscord::responseForeign))) && ((PercevalDiscord::judge request) =? (PercevalDiscord::answerPaging)))
+}
+
+theorem{
+  name: inv001Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv001 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv001
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv002,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request response) =? (PercevalDiscord::responseStale))) && ((PercevalDiscord::judge request) =? (PercevalDiscord::answerPaging)))
+}
+
+theorem{
+  name: inv002Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv002 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv002
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv003,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request limit) <? (project request returned))) && ((PercevalDiscord::judge request) =? (PercevalDiscord::answerPaging)))
+}
+
+theorem{
+  name: inv003Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv003 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv003
+    ]
+  },
+  axioms: [Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv004,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: (((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request remaining) <=? (project request floor))) && ((project request sleep) =? (PercevalDiscord::sleepNo))) && ((PercevalDiscord::judge request) =? (PercevalDiscord::answerPaging)))
+}
+
+theorem{
+  name: inv004Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv004 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv004
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv005,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request state) =? (PercevalDiscord::stateChannel))) && ((PercevalDiscord::judge request) =? (PercevalDiscord::answerDone)))
+}
+
+theorem{
+  name: inv005Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv005 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv005
+    ]
+  },
+  axioms: [Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv006,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request response) =? (PercevalDiscord::responseError))) && (not ((project request state) =? (PercevalDiscord::stateDone)))) && (not ((project request state) =? (PercevalDiscord::stateRefused)))) && (not ((PercevalDiscord::judge request) =? (PercevalDiscord::answerFailed))))
+}
+
+theorem{
+  name: inv006Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv006 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv006
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv007,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request state) =? (PercevalDiscord::stateDone))) && (not ((PercevalDiscord::judge request) =? (PercevalDiscord::answerDone))))
+}
+
+theorem{
+  name: inv007Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv007 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv007
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv008,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request state) =? (PercevalDiscord::stateRefused))) && (not ((PercevalDiscord::judge request) =? (PercevalDiscord::answerRefused))))
+}
+
+theorem{
+  name: inv008Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv008 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv008
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv009,
+  parameters: [request : PercevalDiscord::Request],
+  result: Bool,
+  body: ((((((((project request state) <? 5) && ((project request response) <? 4)) && (1 <=? (project request limit))) && ((project request limit) <=? 100)) && ((project request sleep) <? 2)) && ((project request state) =? (PercevalDiscord::stateFailed))) && (not ((PercevalDiscord::judge request) =? (PercevalDiscord::answerFailed))))
+}
+
+theorem{
+  name: inv009Holds,
+  parameters: [request : PercevalDiscord::Request],
+  statement: ((breaksInv009 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      PercevalDiscord::answerChannel,
+      PercevalDiscord::answerDone,
+      PercevalDiscord::answerFailed,
+      PercevalDiscord::answerPaging,
+      PercevalDiscord::answerRefused,
+      PercevalDiscord::judge,
+      PercevalDiscord::responseError,
+      PercevalDiscord::responseForeign,
+      PercevalDiscord::responseOk,
+      PercevalDiscord::responseStale,
+      PercevalDiscord::rule1,
+      PercevalDiscord::rule2,
+      PercevalDiscord::rule3,
+      PercevalDiscord::rule4,
+      PercevalDiscord::rule5,
+      PercevalDiscord::rule6,
+      PercevalDiscord::rule7,
+      PercevalDiscord::rule8,
+      PercevalDiscord::rule9,
+      PercevalDiscord::sleepNo,
+      PercevalDiscord::sleepYes,
+      PercevalDiscord::stateChannel,
+      PercevalDiscord::stateDone,
+      PercevalDiscord::stateFailed,
+      PercevalDiscord::statePaging,
+      PercevalDiscord::stateRefused,
+      PercevalDiscord::stepChannel,
+      PercevalDiscord::stepDone,
+      PercevalDiscord::stepFailed,
+      PercevalDiscord::stepPaging,
+      PercevalDiscord::stepRefused,
+      breaksInv009
+    ]
+  },
+  axioms: [Classical.choice, Quot.sound, propext]
+}
+\end{semanticmodule}
+\end{lexlean}

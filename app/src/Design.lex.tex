@@ -1,0 +1,891 @@
+\begin{lexlean}{Design}
+\useglossary{lexlean.std.bool@1.2.0}
+\useglossary{lexlean.std.nat@1.2.0}
+\useglossary{prism.arch@1.0.0}
+\importmodule{Architecture}
+\importmodule{Foundation.Arch}
+\title{design view}
+\begin{semanticmodule}
+definition{
+  name: processSendRequest,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentBrowser"})
+}
+
+definition{
+  name: processDecide,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processParseRequest,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processJudge,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processEncodeAnswer,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processBuildAndVerify,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPrismBuild"})
+}
+
+definition{
+  name: processRule1,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule2,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule3,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule4,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule5,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule6,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule7,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule8,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processRule9,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: processOtherwise,
+  parameters: [],
+  result: Foundation.Arch::SystemProcess,
+  body: (record Foundation.Arch::SystemProcess {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateIdle,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateDeciding,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateRefused,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateAnsweredChannel,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateAnsweredPaging,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateAnsweredDone,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateAnsweredRefused,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateAnsweredFailed,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateMachineChannel,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateMachinePaging,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateMachineDone,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateMachineRefused,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: stateMachineFailed,
+  parameters: [],
+  result: Foundation.Arch::SystemState,
+  body: (record Foundation.Arch::SystemState {owner := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: viewOpmDecide,
+  parameters: [],
+  result: Foundation.Arch::DesignView,
+  body: (record Foundation.Arch::DesignView {title := "Deciding a Perceval Discord backend request", viewpoint := "Architecture::viewpointGrimoireLabOperatorCorrectAnswers", diagram := (ctor Foundation.Arch::DesignDiagram.opmObjectProcess)})
+}
+
+definition{
+  name: viewUmlComponents,
+  parameters: [],
+  result: Foundation.Arch::DesignView,
+  body: (record Foundation.Arch::DesignView {title := "Components of Perceval Discord backend", viewpoint := "Architecture::viewpointVerifierIntegrityOfThePublishedApp", diagram := (ctor Foundation.Arch::DesignDiagram.umlComponent)})
+}
+
+definition{
+  name: viewUmlRequest,
+  parameters: [],
+  result: Foundation.Arch::DesignView,
+  body: (record Foundation.Arch::DesignView {title := "Answering a Perceval Discord backend request", viewpoint := "Architecture::viewpointGrimoireLabOperatorCorrectAnswers", diagram := (ctor Foundation.Arch::DesignDiagram.umlSequence)})
+}
+
+definition{
+  name: viewUmlStates,
+  parameters: [],
+  result: Foundation.Arch::DesignView,
+  body: (record Foundation.Arch::DesignView {title := "States of the Perceval Discord backend guest", viewpoint := "Architecture::viewpointVerifierRefusedMalformedRequests", diagram := (ctor Foundation.Arch::DesignDiagram.umlStateMachine)})
+}
+
+definition{
+  name: viewUmlMachine,
+  parameters: [],
+  result: Foundation.Arch::DesignView,
+  body: (record Foundation.Arch::DesignView {title := "The Perceval Discord backend state machine", viewpoint := "Architecture::viewpointGrimoireLabOperatorCorrectAnswers", diagram := (ctor Foundation.Arch::DesignDiagram.umlStateMachine)})
+}
+
+definition{
+  name: opmBrowser,
+  parameters: [],
+  result: Foundation.Arch::OpmThing,
+  body: (record Foundation.Arch::OpmThing {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmThingKind.object), subject := "Architecture::componentBrowser"})
+}
+
+definition{
+  name: opmGuest,
+  parameters: [],
+  result: Foundation.Arch::OpmThing,
+  body: (record Foundation.Arch::OpmThing {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmThingKind.object), subject := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: opmDecide,
+  parameters: [],
+  result: Foundation.Arch::OpmThing,
+  body: (record Foundation.Arch::OpmThing {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmThingKind.process), subject := "Design::processDecide"})
+}
+
+definition{
+  name: opmParseRequest,
+  parameters: [],
+  result: Foundation.Arch::OpmThing,
+  body: (record Foundation.Arch::OpmThing {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmThingKind.process), subject := "Design::processParseRequest"})
+}
+
+definition{
+  name: opmJudge,
+  parameters: [],
+  result: Foundation.Arch::OpmThing,
+  body: (record Foundation.Arch::OpmThing {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmThingKind.process), subject := "Design::processJudge"})
+}
+
+definition{
+  name: opmEncodeAnswer,
+  parameters: [],
+  result: Foundation.Arch::OpmThing,
+  body: (record Foundation.Arch::OpmThing {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmThingKind.process), subject := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: opmGuestIdle,
+  parameters: [],
+  result: Foundation.Arch::OpmState,
+  body: (record Foundation.Arch::OpmState {view := "Design::viewOpmDecide", thing := "Architecture::componentPercevalDiscordBackendGuest", state := "Design::stateIdle"})
+}
+
+definition{
+  name: opmGuestDeciding,
+  parameters: [],
+  result: Foundation.Arch::OpmState,
+  body: (record Foundation.Arch::OpmState {view := "Design::viewOpmDecide", thing := "Architecture::componentPercevalDiscordBackendGuest", state := "Design::stateDeciding"})
+}
+
+definition{
+  name: opmGuestAgent,
+  parameters: [],
+  result: Foundation.Arch::OpmLink,
+  body: (record Foundation.Arch::OpmLink {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmLinkKind.agent), source := "Architecture::componentPercevalDiscordBackendGuest", target := "Design::processDecide"})
+}
+
+definition{
+  name: opmBrowserInstrument,
+  parameters: [],
+  result: Foundation.Arch::OpmLink,
+  body: (record Foundation.Arch::OpmLink {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmLinkKind.instrument), source := "Architecture::componentBrowser", target := "Design::processParseRequest"})
+}
+
+definition{
+  name: opmParseInvokesJudge,
+  parameters: [],
+  result: Foundation.Arch::OpmLink,
+  body: (record Foundation.Arch::OpmLink {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmLinkKind.invocation), source := "Design::processParseRequest", target := "Design::processJudge"})
+}
+
+definition{
+  name: opmJudgeInvokesEncode,
+  parameters: [],
+  result: Foundation.Arch::OpmLink,
+  body: (record Foundation.Arch::OpmLink {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmLinkKind.invocation), source := "Design::processJudge", target := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: opmEncodeAffectsBrowser,
+  parameters: [],
+  result: Foundation.Arch::OpmLink,
+  body: (record Foundation.Arch::OpmLink {view := "Design::viewOpmDecide", kind := (ctor Foundation.Arch::OpmLinkKind.effect), source := "Architecture::componentBrowser", target := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: opmZoomParseRequest,
+  parameters: [],
+  result: Foundation.Arch::OpmZoom,
+  body: (record Foundation.Arch::OpmZoom {view := "Design::viewOpmDecide", process := "Design::processDecide", subprocess := "Design::processParseRequest", order := 0})
+}
+
+definition{
+  name: opmZoomJudge,
+  parameters: [],
+  result: Foundation.Arch::OpmZoom,
+  body: (record Foundation.Arch::OpmZoom {view := "Design::viewOpmDecide", process := "Design::processDecide", subprocess := "Design::processJudge", order := 1})
+}
+
+definition{
+  name: opmZoomEncodeAnswer,
+  parameters: [],
+  result: Foundation.Arch::OpmZoom,
+  body: (record Foundation.Arch::OpmZoom {view := "Design::viewOpmDecide", process := "Design::processDecide", subprocess := "Design::processEncodeAnswer", order := 2})
+}
+
+definition{
+  name: umlBrowser,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentBrowser"})
+}
+
+definition{
+  name: umlDiscordAPIV10,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentDiscordAPIV10"})
+}
+
+definition{
+  name: umlGitHubPages,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentGitHubPages"})
+}
+
+definition{
+  name: umlGrimoireLabChronicler,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentGrimoireLabChronicler"})
+}
+
+definition{
+  name: umlPercevalArchive,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentPercevalArchive"})
+}
+
+definition{
+  name: umlPercevalDiscord,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentPercevalDiscord"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendPage,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentPercevalDiscordBackendPage"})
+}
+
+definition{
+  name: umlPrismBuild,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentPrismBuild"})
+}
+
+definition{
+  name: umlSourceRepository,
+  parameters: [],
+  result: Foundation.Arch::UmlComponent,
+  body: (record Foundation.Arch::UmlComponent {view := "Design::viewUmlComponents", component := "Architecture::componentSourceRepository"})
+}
+
+definition{
+  name: umlBrowserToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgeBrowserToPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlDiscordAPIV10ToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgeDiscordAPIV10ToPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlGitHubPagesToBrowser,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgeGitHubPagesToBrowser"})
+}
+
+definition{
+  name: umlGrimoireLabChroniclerToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgeGrimoireLabChroniclerToPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlPercevalArchiveToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalArchiveToPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendGuestToBrowser,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordBackendGuestToBrowser"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendGuestToDiscordAPIV10,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordBackendGuestToDiscordAPIV10"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendGuestToGrimoireLabChronicler,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordBackendGuestToGrimoireLabChronicler"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendGuestToPercevalArchive,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordBackendGuestToPercevalArchive"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendGuestToPercevalDiscord,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordBackendGuestToPercevalDiscord"})
+}
+
+definition{
+  name: umlPercevalDiscordBackendPageToGitHubPages,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordBackendPageToGitHubPages"})
+}
+
+definition{
+  name: umlPercevalDiscordToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePercevalDiscordToPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlPrismBuildToPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePrismBuildToPercevalDiscordBackendGuest"})
+}
+
+definition{
+  name: umlPrismBuildToPercevalDiscordBackendPage,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgePrismBuildToPercevalDiscordBackendPage"})
+}
+
+definition{
+  name: umlSourceRepositoryToPrismBuild,
+  parameters: [],
+  result: Foundation.Arch::UmlConnector,
+  body: (record Foundation.Arch::UmlConnector {view := "Design::viewUmlComponents", edge := "Architecture::edgeSourceRepositoryToPrismBuild"})
+}
+
+definition{
+  name: seqBrowser,
+  parameters: [],
+  result: Foundation.Arch::UmlLifeline,
+  body: (record Foundation.Arch::UmlLifeline {view := "Design::viewUmlRequest", component := "Architecture::componentBrowser", order := 0})
+}
+
+definition{
+  name: seqPercevalDiscordBackendGuest,
+  parameters: [],
+  result: Foundation.Arch::UmlLifeline,
+  body: (record Foundation.Arch::UmlLifeline {view := "Design::viewUmlRequest", component := "Architecture::componentPercevalDiscordBackendGuest", order := 1})
+}
+
+definition{
+  name: seqRequest,
+  parameters: [],
+  result: Foundation.Arch::UmlMessage,
+  body: (record Foundation.Arch::UmlMessage {view := "Design::viewUmlRequest", kind := (ctor Foundation.Arch::UmlMessageKind.synchronous), order := 0, source := "Architecture::componentBrowser", target := "Architecture::componentPercevalDiscordBackendGuest", process := "Design::processDecide"})
+}
+
+definition{
+  name: seqReply,
+  parameters: [],
+  result: Foundation.Arch::UmlMessage,
+  body: (record Foundation.Arch::UmlMessage {view := "Design::viewUmlRequest", kind := (ctor Foundation.Arch::UmlMessageKind.reply), order := 1, source := "Architecture::componentPercevalDiscordBackendGuest", target := "Architecture::componentBrowser", process := "Design::processDecide"})
+}
+
+definition{
+  name: stIdle,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateIdle", initial := true})
+}
+
+definition{
+  name: stDeciding,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateDeciding", initial := false})
+}
+
+definition{
+  name: stRefused,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateRefused", initial := false})
+}
+
+definition{
+  name: stAnsweredChannel,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateAnsweredChannel", initial := false})
+}
+
+definition{
+  name: stAnsweredPaging,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateAnsweredPaging", initial := false})
+}
+
+definition{
+  name: stAnsweredDone,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateAnsweredDone", initial := false})
+}
+
+definition{
+  name: stAnsweredRefused,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateAnsweredRefused", initial := false})
+}
+
+definition{
+  name: stAnsweredFailed,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlStates", state := "Design::stateAnsweredFailed", initial := false})
+}
+
+definition{
+  name: stMachineChannel,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlMachine", state := "Design::stateMachineChannel", initial := true})
+}
+
+definition{
+  name: stMachinePaging,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlMachine", state := "Design::stateMachinePaging", initial := false})
+}
+
+definition{
+  name: stMachineDone,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlMachine", state := "Design::stateMachineDone", initial := false})
+}
+
+definition{
+  name: stMachineRefused,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlMachine", state := "Design::stateMachineRefused", initial := false})
+}
+
+definition{
+  name: stMachineFailed,
+  parameters: [],
+  result: Foundation.Arch::UmlState,
+  body: (record Foundation.Arch::UmlState {view := "Design::viewUmlMachine", state := "Design::stateMachineFailed", initial := false})
+}
+
+definition{
+  name: trAccept,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 0, source := "Design::stateIdle", target := "Design::stateDeciding", trigger := "Design::processParseRequest"})
+}
+
+definition{
+  name: trRefuse,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 1, source := "Design::stateIdle", target := "Design::stateRefused", trigger := "Design::processParseRequest"})
+}
+
+definition{
+  name: trRule1,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 2, source := "Design::stateDeciding", target := "Design::stateAnsweredDone", trigger := "Design::processRule1"})
+}
+
+definition{
+  name: trRule2,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 3, source := "Design::stateDeciding", target := "Design::stateAnsweredRefused", trigger := "Design::processRule2"})
+}
+
+definition{
+  name: trRule3,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 4, source := "Design::stateDeciding", target := "Design::stateAnsweredFailed", trigger := "Design::processRule3"})
+}
+
+definition{
+  name: trRule4,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 5, source := "Design::stateDeciding", target := "Design::stateAnsweredRefused", trigger := "Design::processRule4"})
+}
+
+definition{
+  name: trRule5,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 6, source := "Design::stateDeciding", target := "Design::stateAnsweredRefused", trigger := "Design::processRule5"})
+}
+
+definition{
+  name: trRule6,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 7, source := "Design::stateDeciding", target := "Design::stateAnsweredFailed", trigger := "Design::processRule6"})
+}
+
+definition{
+  name: trRule7,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 8, source := "Design::stateDeciding", target := "Design::stateAnsweredRefused", trigger := "Design::processRule7"})
+}
+
+definition{
+  name: trRule8,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 9, source := "Design::stateDeciding", target := "Design::stateAnsweredDone", trigger := "Design::processRule8"})
+}
+
+definition{
+  name: trRule9,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 10, source := "Design::stateDeciding", target := "Design::stateAnsweredFailed", trigger := "Design::processRule9"})
+}
+
+definition{
+  name: trOtherwise,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 11, source := "Design::stateDeciding", target := "Design::stateAnsweredPaging", trigger := "Design::processOtherwise"})
+}
+
+definition{
+  name: trResetChannel,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 12, source := "Design::stateAnsweredChannel", target := "Design::stateIdle", trigger := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: trResetPaging,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 13, source := "Design::stateAnsweredPaging", target := "Design::stateIdle", trigger := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: trResetDone,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 14, source := "Design::stateAnsweredDone", target := "Design::stateIdle", trigger := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: trResetRefused,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 15, source := "Design::stateAnsweredRefused", target := "Design::stateIdle", trigger := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: trResetFailed,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 16, source := "Design::stateAnsweredFailed", target := "Design::stateIdle", trigger := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: trResetRefused2,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlStates", order := 17, source := "Design::stateRefused", target := "Design::stateIdle", trigger := "Design::processEncodeAnswer"})
+}
+
+definition{
+  name: trMachineChannelToPagingByOtherwise,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 0, source := "Design::stateMachineChannel", target := "Design::stateMachinePaging", trigger := "Design::processOtherwise"})
+}
+
+definition{
+  name: trMachineChannelToFailedByREQ006,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 1, source := "Design::stateMachineChannel", target := "Design::stateMachineFailed", trigger := "Design::processRule6"})
+}
+
+definition{
+  name: trMachineChannelToFailedByREQ009,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 2, source := "Design::stateMachineChannel", target := "Design::stateMachineFailed", trigger := "Design::processRule9"})
+}
+
+definition{
+  name: trMachineChannelToRefusedByREQ004,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 3, source := "Design::stateMachineChannel", target := "Design::stateMachineRefused", trigger := "Design::processRule4"})
+}
+
+definition{
+  name: trMachineChannelToRefusedByREQ005,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 4, source := "Design::stateMachineChannel", target := "Design::stateMachineRefused", trigger := "Design::processRule5"})
+}
+
+definition{
+  name: trMachineChannelToRefusedByREQ007,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 5, source := "Design::stateMachineChannel", target := "Design::stateMachineRefused", trigger := "Design::processRule7"})
+}
+
+definition{
+  name: trMachinePagingToDoneByREQ008,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 6, source := "Design::stateMachinePaging", target := "Design::stateMachineDone", trigger := "Design::processRule8"})
+}
+
+definition{
+  name: trMachinePagingToPagingByOtherwise,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 7, source := "Design::stateMachinePaging", target := "Design::stateMachinePaging", trigger := "Design::processOtherwise"})
+}
+
+definition{
+  name: trMachinePagingToFailedByREQ006,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 8, source := "Design::stateMachinePaging", target := "Design::stateMachineFailed", trigger := "Design::processRule6"})
+}
+
+definition{
+  name: trMachinePagingToFailedByREQ009,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 9, source := "Design::stateMachinePaging", target := "Design::stateMachineFailed", trigger := "Design::processRule9"})
+}
+
+definition{
+  name: trMachinePagingToRefusedByREQ004,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 10, source := "Design::stateMachinePaging", target := "Design::stateMachineRefused", trigger := "Design::processRule4"})
+}
+
+definition{
+  name: trMachinePagingToRefusedByREQ005,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 11, source := "Design::stateMachinePaging", target := "Design::stateMachineRefused", trigger := "Design::processRule5"})
+}
+
+definition{
+  name: trMachinePagingToRefusedByREQ007,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 12, source := "Design::stateMachinePaging", target := "Design::stateMachineRefused", trigger := "Design::processRule7"})
+}
+
+definition{
+  name: trMachineDoneToDoneByREQ001,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 13, source := "Design::stateMachineDone", target := "Design::stateMachineDone", trigger := "Design::processRule1"})
+}
+
+definition{
+  name: trMachineRefusedToRefusedByREQ002,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 14, source := "Design::stateMachineRefused", target := "Design::stateMachineRefused", trigger := "Design::processRule2"})
+}
+
+definition{
+  name: trMachineFailedToFailedByREQ003,
+  parameters: [],
+  result: Foundation.Arch::UmlTransition,
+  body: (record Foundation.Arch::UmlTransition {view := "Design::viewUmlMachine", order := 15, source := "Design::stateMachineFailed", target := "Design::stateMachineFailed", trigger := "Design::processRule3"})
+}
+\end{semanticmodule}
+\end{lexlean}

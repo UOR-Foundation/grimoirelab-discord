@@ -18,18 +18,29 @@ The three honesty levels (R2):
 `cargo xtask audit-limits` fails if any code path returns an error the
 model does not sanction.
 
-## contract
-
-| ID | Level | Statement |
-| --- | --- | --- |
-| `TC-01` | `build` | The checker answers conformant exactly when every universal policy file's observed digest equals its locked digest |
-
 ## frame
 
 | ID | Level | Statement |
 | --- | --- | --- |
 | `FR-01` | `build` | With a working worker, the page loads and verifies the archive only in that worker before using its identities or guest |
 | `FR-02` | `build` | A returning browser whose worker kept an earlier deploy serves this deploy from the navigation that brings its page |
+
+## perceval_discord
+
+| ID | Level | Statement |
+| --- | --- | --- |
+| `PD-01` | `build` | The app never answers paging when response is foreign |
+| `PD-02` | `build` | The app never answers paging when response is stale |
+| `PD-03` | `build` | The app never answers paging when returned is above limit |
+| `PD-04` | `build` | The app never answers paging when remaining is at most floor and sleep is no |
+| `PD-05` | `build` | The app never answers done when state is channel |
+| `PD-06` | `build` | The app always answers failed when response is error and state is not done and state is not refused |
+| `PD-07` | `build` | The app always answers done when state is done |
+| `PD-08` | `build` | The app always answers refused when state is refused |
+| `PD-09` | `build` | The app always answers failed when state is failed |
+| `PD-10` | `build` | The architecture description declares every stakeholder, concern, component, edge, viewpoint and view it references |
+| `PD-11` | `build` | The ISO/IEC 25010 quality model numbers every characteristic, subcharacteristic, requirement and measure, and every parent it names is declared |
+| `PD-12` | `build` | Every compliance obligation is numbered in order and names its evidence |
 
 ## Cited authorities
 

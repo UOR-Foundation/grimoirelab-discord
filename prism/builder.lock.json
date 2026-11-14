@@ -1,0 +1,7 @@
+{
+  "spec": "uor/builder-lock/1",
+  "about": "The Prism builder this repository's app is generated with. app/prompt.json is the single source; prism/build.sh regenerates every generated file from it with the builder at exactly this commit.",
+  "repository": "afflom/prism-devrel",
+  "commit": "67b78b6a329e015c908136a348a166ad7abb71bf",
+  "keep_suites": ["frame"]
+}
